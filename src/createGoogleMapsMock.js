@@ -1,11 +1,11 @@
 const createMockFuncsFromArray = (instance, names = []) => {
-  names.forEach(name => {
+  names.forEach((name) => {
     instance[name] = jest.fn().mockName(name);
   });
 };
 
 const createGoogleMapsMock = (libraries = []) => {
-  const createMVCObject = instance => {
+  const createMVCObject = (instance) => {
     const listeners = {};
     instance.listeners = listeners;
 
@@ -23,16 +23,16 @@ const createGoogleMapsMock = (libraries = []) => {
           },
         };
       })
-      .mockName('addListener');
+      .mockName("addListener");
 
     createMockFuncsFromArray(instance, [
-      'bindTo',
-      'get',
-      'notify',
-      'set',
-      'setValues',
-      'unbind',
-      'unbindAll',
+      "bindTo",
+      "get",
+      "notify",
+      "set",
+      "setValues",
+      "unbind",
+      "unbindAll",
     ]);
   };
 
@@ -43,21 +43,21 @@ const createGoogleMapsMock = (libraries = []) => {
       Lo: 3,
       Go: 4,
     },
-    BicyclingLayer: jest.fn().mockImplementation(function() {
+    BicyclingLayer: jest.fn().mockImplementation(function () {
       createMVCObject(this);
-      createMockFuncsFromArray(this, ['setMap']);
+      createMockFuncsFromArray(this, ["setMap"]);
     }),
-    Circle: jest.fn().mockImplementation(function(opts) {
+    Circle: jest.fn().mockImplementation(function (opts) {
       this.opts = opts;
       createMVCObject(this);
       createMockFuncsFromArray(this, [
-        'setCenter',
-        'setDraggable',
-        'setEditable',
-        'setMap',
-        'setOptions',
-        'setRadius',
-        'setVisible',
+        "setCenter",
+        "setDraggable",
+        "setEditable",
+        "setMap",
+        "setOptions",
+        "setRadius",
+        "setVisible",
       ]);
     }),
     ControlPosition: {
@@ -78,131 +78,134 @@ const createGoogleMapsMock = (libraries = []) => {
       BOTTOM_RIGHT: 12,
       CENTER: 13,
     },
-    Data: jest.fn().mockImplementation(function(options) {
+    Data: jest.fn().mockImplementation(function (options) {
       this.options = options;
       createMVCObject(this);
       createMockFuncsFromArray(this, [
-        'setControlPosition',
-        'setControls',
-        'setDrawingMode',
-        'setMap',
-        'setStyle',
+        "setControlPosition",
+        "setControls",
+        "setDrawingMode",
+        "setMap",
+        "setStyle",
       ]);
     }),
-    DirectionsRenderer: jest.fn().mockImplementation(function(opts) {
+    DirectionsRenderer: jest.fn().mockImplementation(function (opts) {
       this.opts = opts;
       createMVCObject(this);
       createMockFuncsFromArray(this, [
-        'setDirections',
-        'setMap',
-        'setOptions',
-        'setPanel',
-        'setRouteIndex',
+        "setDirections",
+        "setMap",
+        "setOptions",
+        "setPanel",
+        "setRouteIndex",
       ]);
     }),
-    DirectionsService: function() {},
+    DirectionsService: function () {},
     DirectionsStatus: {
-      INVALID_REQUEST: 'INVALID_REQUEST',
-      MAX_WAYPOINTS_EXCEEDED: 'MAX_WAYPOINTS_EXCEEDED',
-      NOT_FOUND: 'NOT_FOUND',
-      OK: 'OK',
-      OVER_QUERY_LIMIT: 'OVER_QUERY_LIMIT',
-      REQUEST_DENIED: 'REQUEST_DENIED',
-      UNKNOWN_ERROR: 'UNKNOWN_ERROR',
-      ZERO_RESULTS: 'ZERO_RESULTS',
+      INVALID_REQUEST: "INVALID_REQUEST",
+      MAX_WAYPOINTS_EXCEEDED: "MAX_WAYPOINTS_EXCEEDED",
+      NOT_FOUND: "NOT_FOUND",
+      OK: "OK",
+      OVER_QUERY_LIMIT: "OVER_QUERY_LIMIT",
+      REQUEST_DENIED: "REQUEST_DENIED",
+      UNKNOWN_ERROR: "UNKNOWN_ERROR",
+      ZERO_RESULTS: "ZERO_RESULTS",
     },
     DirectionsTravelMode: {
-      BICYCLING: 'BICYCLING',
-      DRIVING: 'DRIVING',
-      TRANSIT: 'TRANSIT',
-      WALKING: 'WALKING',
+      BICYCLING: "BICYCLING",
+      DRIVING: "DRIVING",
+      TRANSIT: "TRANSIT",
+      WALKING: "WALKING",
     },
     DirectionsUnitSystem: {
       IMPERIAL: 1,
       METRIC: 0,
     },
     DistanceMatrixElementStatus: {
-      NOT_FOUND: 'NOT_FOUND',
-      OK: 'OK',
-      ZERO_RESULTS: 'ZERO_RESULTS',
+      NOT_FOUND: "NOT_FOUND",
+      OK: "OK",
+      ZERO_RESULTS: "ZERO_RESULTS",
     },
-    DistanceMatrixService: function() {},
+    DistanceMatrixService: function () {},
     DistanceMatrixStatus: {
-      INVALID_REQUEST: 'INVALID_REQUEST',
-      MAX_DIMENSIONS_EXCEEDED: 'MAX_DIMENSIONS_EXCEEDED',
-      MAX_ELEMENTS_EXCEEDED: 'MAX_ELEMENTS_EXCEEDED',
-      OK: 'OK',
-      OVER_QUERY_LIMIT: 'OVER_QUERY_LIMIT',
-      REQUEST_DENIED: 'REQUEST_DENIED',
-      UNKNOWN_ERROR: 'UNKNOWN_ERROR',
+      INVALID_REQUEST: "INVALID_REQUEST",
+      MAX_DIMENSIONS_EXCEEDED: "MAX_DIMENSIONS_EXCEEDED",
+      MAX_ELEMENTS_EXCEEDED: "MAX_ELEMENTS_EXCEEDED",
+      OK: "OK",
+      OVER_QUERY_LIMIT: "OVER_QUERY_LIMIT",
+      REQUEST_DENIED: "REQUEST_DENIED",
+      UNKNOWN_ERROR: "UNKNOWN_ERROR",
     },
-    ElevationService: function() {},
+    ElevationService: function () {},
     ElevationStatus: {
-      Co: 'DATA_NOT_AVAILABLE',
-      INVALID_REQUEST: 'INVALID_REQUEST',
-      OK: 'OK',
-      OVER_QUERY_LIMIT: 'OVER_QUERY_LIMIT',
-      REQUEST_DENIED: 'REQUEST_DENIED',
-      UNKNOWN_ERROR: 'UNKNOWN_ERROR',
+      Co: "DATA_NOT_AVAILABLE",
+      INVALID_REQUEST: "INVALID_REQUEST",
+      OK: "OK",
+      OVER_QUERY_LIMIT: "OVER_QUERY_LIMIT",
+      REQUEST_DENIED: "REQUEST_DENIED",
+      UNKNOWN_ERROR: "UNKNOWN_ERROR",
     },
-    FusionTablesLayer: jest.fn().mockImplementation(function(options) {
+    FusionTablesLayer: jest.fn().mockImplementation(function (options) {
       this.options = options;
       createMVCObject(this);
-      createMockFuncsFromArray(this, ['setMap', 'setOptions']);
+      createMockFuncsFromArray(this, ["setMap", "setOptions"]);
     }),
-    Geocoder: function() {},
+    Geocoder: function () {},
     GeocoderLocationType: {
-      APPROXIMATE: 'APPROXIMATE',
-      GEOMETRIC_CENTER: 'GEOMETRIC_CENTER',
-      RANGE_INTERPOLATED: 'RANGE_INTERPOLATED',
-      ROOFTOP: 'ROOFTOP',
+      APPROXIMATE: "APPROXIMATE",
+      GEOMETRIC_CENTER: "GEOMETRIC_CENTER",
+      RANGE_INTERPOLATED: "RANGE_INTERPOLATED",
+      ROOFTOP: "ROOFTOP",
     },
     GeocoderStatus: {
-      ERROR: 'ERROR',
-      INVALID_REQUEST: 'INVALID_REQUEST',
-      OK: 'OK',
-      OVER_QUERY_LIMIT: 'OVER_QUERY_LIMIT',
-      REQUEST_DENIED: 'REQUEST_DENIED',
-      UNKNOWN_ERROR: 'UNKNOWN_ERROR',
-      ZERO_RESULTS: 'ZERO_RESULTS',
+      ERROR: "ERROR",
+      INVALID_REQUEST: "INVALID_REQUEST",
+      OK: "OK",
+      OVER_QUERY_LIMIT: "OVER_QUERY_LIMIT",
+      REQUEST_DENIED: "REQUEST_DENIED",
+      UNKNOWN_ERROR: "UNKNOWN_ERROR",
+      ZERO_RESULTS: "ZERO_RESULTS",
     },
-    GroundOverlay: function() {},
-    ImageMapType: function() {},
-    InfoWindow: function() {},
-    KmlLayer: function() {},
+    GroundOverlay: function () {},
+    ImageMapType: function () {},
+    InfoWindow: function () {},
+    KmlLayer: function () {},
     KmlLayerStatus: {
-      DOCUMENT_NOT_FOUND: 'DOCUMENT_NOT_FOUND',
-      DOCUMENT_TOO_LARGE: 'DOCUMENT_TOO_LARGE',
-      FETCH_ERROR: 'FETCH_ERROR',
-      INVALID_DOCUMENT: 'INVALID_DOCUMENT',
-      INVALID_REQUEST: 'INVALID_REQUEST',
-      LIMITS_EXCEEDED: 'LIMITS_EXECEEDED',
-      OK: 'OK',
-      TIMED_OUT: 'TIMED_OUT',
-      UNKNOWN: 'UNKNOWN',
+      DOCUMENT_NOT_FOUND: "DOCUMENT_NOT_FOUND",
+      DOCUMENT_TOO_LARGE: "DOCUMENT_TOO_LARGE",
+      FETCH_ERROR: "FETCH_ERROR",
+      INVALID_DOCUMENT: "INVALID_DOCUMENT",
+      INVALID_REQUEST: "INVALID_REQUEST",
+      LIMITS_EXCEEDED: "LIMITS_EXECEEDED",
+      OK: "OK",
+      TIMED_OUT: "TIMED_OUT",
+      UNKNOWN: "UNKNOWN",
     },
-    LatLng: function() {},
-    LatLngBounds: function() {},
-    MVCArray: function() {},
-    MVCObject: jest.fn().mockImplementation(function() {
+    LatLng: function () {},
+    LatLngBounds: function () {},
+    MVCArray: function () {},
+    MVCObject: jest.fn().mockImplementation(function () {
       createMVCObject(this);
     }),
-    Map: jest.fn().mockImplementation(function(mapDiv, opts) {
+    Map: jest.fn().mockImplementation(function (mapDiv, opts) {
       this.mapDiv = mapDiv;
       this.opts = opts;
       createMVCObject(this);
       createMockFuncsFromArray(this, [
-        'setCenter',
-        'setClickableIcons',
-        'setHeading',
-        'setMapTypeId',
-        'setOptions',
-        'setStreetView',
-        'setTilt',
-        'setZoom',
-        'fitBounds',
-        'getBounds',
-        'panToBounds',
+        "fitBounds",
+        "getBounds",
+        "getMapTypeId",
+        "getZoom",
+        "panTo",
+        "panToBounds",
+        "setCenter",
+        "setClickableIcons",
+        "setHeading",
+        "setMapTypeId",
+        "setOptions",
+        "setStreetView",
+        "setTilt",
+        "setZoom",
       ]);
     }),
     MapTypeControlStyle: {
@@ -213,35 +216,35 @@ const createGoogleMapsMock = (libraries = []) => {
       INSET_LARGE: 4,
     },
     MapTypeId: {
-      HYBRID: 'hybrid',
-      ROADMAP: 'roadmap',
-      SATELLITE: 'satellite',
-      TERRAIN: 'terrain',
+      HYBRID: "hybrid",
+      ROADMAP: "roadmap",
+      SATELLITE: "satellite",
+      TERRAIN: "terrain",
     },
-    MapTypeRegistry: function() {},
-    Marker: jest.fn().mockImplementation(function(opts) {
+    MapTypeRegistry: function () {},
+    Marker: jest.fn().mockImplementation(function (opts) {
       this.opts = opts;
       createMVCObject(this);
       createMockFuncsFromArray(this, [
-        'setMap',
-        'setOpacity',
-        'setOptions',
-        'setPosition',
-        'setShape',
-        'setTitle',
-        'setVisible',
-        'setZIndex',
+        "setMap",
+        "setOpacity",
+        "setOptions",
+        "setPosition",
+        "setShape",
+        "setTitle",
+        "setVisible",
+        "setZIndex",
       ]);
     }),
-    MarkerImage: function() {},
-    MaxZoomService: function() {
+    MarkerImage: function () {},
+    MaxZoomService: function () {
       return {
-        getMaxZoomAtLatLng: function() {},
+        getMaxZoomAtLatLng: function () {},
       };
     },
     MaxZoomStatus: {
-      ERROR: 'ERROR',
-      OK: 'OK',
+      ERROR: "ERROR",
+      OK: "OK",
     },
     NavigationControlStyle: {
       ANDROID: 2,
@@ -251,38 +254,40 @@ const createGoogleMapsMock = (libraries = []) => {
       ZOOM_PAN: 3,
       ik: 5,
     },
-    OverlayView: function() {},
-    Point: function() {},
-    Polygon: function() {},
-    Polyline: function() {},
-    Rectangle: function() {},
-    SaveWidget: function() {},
+    OverlayView: function () {
+      createMockFuncsFromArray(this, ["setMap"]);
+    },
+    Point: function () {},
+    Polygon: function () {},
+    Polyline: function () {},
+    Rectangle: function () {},
+    SaveWidget: function () {},
     ScaleControlStyle: {
       DEFAULT: 0,
     },
-    Size: function() {},
-    StreetViewCoverageLayer: function() {},
-    StreetViewPanorama: function() {},
+    Size: function () {},
+    StreetViewCoverageLayer: function () {},
+    StreetViewPanorama: function () {},
     StreetViewPreference: {
-      BEST: 'best',
-      NEAREST: 'nearest',
+      BEST: "best",
+      NEAREST: "nearest",
     },
-    StreetViewService: function() {},
+    StreetViewService: function () {},
     StreetViewSource: {
-      DEFAULT: 'default',
-      OUTDOOR: 'outdoor',
+      DEFAULT: "default",
+      OUTDOOR: "outdoor",
     },
     StreetViewStatus: {
-      OK: 'OK',
-      UNKNOWN_ERROR: 'UNKNOWN_ERROR',
-      ZERO_RESULTS: 'ZERO_RESULTS',
+      OK: "OK",
+      UNKNOWN_ERROR: "UNKNOWN_ERROR",
+      ZERO_RESULTS: "ZERO_RESULTS",
     },
     StrokePosition: {
       CENTER: 0,
       INSIDE: 1,
       OUTSIDE: 2,
     },
-    StyledMapType: function() {},
+    StyledMapType: function () {},
     SymbolPath: {
       BACKWARD_CLOSED_ARROW: 3,
       BACKWARD_OPEN_ARROW: 4,
@@ -290,36 +295,36 @@ const createGoogleMapsMock = (libraries = []) => {
       FORWARD_CLOSED_ARROW: 1,
       FORWARD_OPEN_ARROW: 2,
     },
-    TrafficLayer: jest.fn().mockImplementation(function(opts) {
+    TrafficLayer: jest.fn().mockImplementation(function (opts) {
       this.opts = opts;
       createMVCObject(this);
-      createMockFuncsFromArray(this, ['setMap', 'setOptions']);
+      createMockFuncsFromArray(this, ["setMap", "setOptions"]);
     }),
     TrafficModel: {
-      BEST_GUESS: 'bestguess',
-      OPTIMISTIC: 'optimistic',
-      PESSIMISTIC: 'pessimistic',
+      BEST_GUESS: "bestguess",
+      OPTIMISTIC: "optimistic",
+      PESSIMISTIC: "pessimistic",
     },
-    TransitLayer: jest.fn().mockImplementation(function() {
+    TransitLayer: jest.fn().mockImplementation(function () {
       createMVCObject(this);
-      createMockFuncsFromArray(this, ['setMap']);
+      createMockFuncsFromArray(this, ["setMap"]);
     }),
     TransitMode: {
-      BUS: 'BUS',
-      RAIL: 'RAIL',
-      SUBWAY: 'SUBWAY',
-      TRAIN: 'TRAIN',
-      TRAM: 'TRAM',
+      BUS: "BUS",
+      RAIL: "RAIL",
+      SUBWAY: "SUBWAY",
+      TRAIN: "TRAIN",
+      TRAM: "TRAM",
     },
     TransitRoutePreference: {
-      FEWER_TRANSFERS: 'FEWER_TRANSFERS',
-      LESS_WALKING: 'LESS_WALKING',
+      FEWER_TRANSFERS: "FEWER_TRANSFERS",
+      LESS_WALKING: "LESS_WALKING",
     },
     TravelMode: {
-      BICYCLING: 'BICYCLING',
-      DRIVING: 'DRIVING',
-      TRANSIT: 'TRANSIT',
-      WALKING: 'WALKING',
+      BICYCLING: "BICYCLING",
+      DRIVING: "DRIVING",
+      TRANSIT: "TRANSIT",
+      WALKING: "WALKING",
     },
     UnitSystem: {
       IMPERIAL: 1,
@@ -331,13 +336,15 @@ const createGoogleMapsMock = (libraries = []) => {
       SMALL: 1,
       ik: 3,
     },
-    __gjsload__: function() {},
+    __gjsload__: function () {},
     event: {
-      clearInstanceListeners: jest.fn().mockName('clearInstanceListeners'),
+      clearInstanceListeners: jest.fn().mockName("clearInstanceListeners"),
+      addListener: jest.fn().mockName("addListener"),
+      clearListeners: jest.fn().mockName("clearListeners"),
     },
   };
 
-  if (libraries.includes('places')) {
+  if (libraries.includes("places")) {
     maps.places = {
       AutocompleteService: jest.fn(() => ({
         getPlacePredictions: jest.fn(),
